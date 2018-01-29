@@ -1,0 +1,347 @@
+/*动画部分*/
+@keyframes breathe1 {
+    0%{
+        opacity: .4;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: .4;
+    }
+}
+@-webkit-keyframes breathe1 {
+    0%{
+        opacity: .4;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: .4;
+    }
+}
+@keyframes anitext{
+    0%{
+        top: 3%;
+        opacity: 0;
+    }
+    100% {
+        top: .0;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes anitext{
+    0%{
+        top: 3%;
+        opacity: 0;
+    }
+    100% {
+        top: .0;
+        opacity: 1;
+    }
+}
+@keyframes sc{
+    0%{
+        transform: scale(.9);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(.9);
+    }
+}
+@-webkit-keyframes sc{
+    0%{
+        -webkit-transform: scale(.9);
+    }
+    50%{
+        -webkit-transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(.9);
+    }
+}
+/*主体部分*/
+body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+#snow{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*loading*/
+#loading{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: url(../images/loading.jpg) no-repeat #ffffff;
+    background-size: 100%;
+    overflow: hidden;
+    /*display: none;*/
+}
+img.logo{
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 10000;
+}
+.share-box{
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.progress{
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+}
+/*audioBtn*/
+#audioBtn{
+    background: url(../images/audio.png) 0px 0px no-repeat;
+    background-size: cover;
+    width: 31px;
+    height: 29px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 95px;
+    top: 40px;
+    z-index: 200;
+}
+#audioBtn.soundStop{
+    background-position: 0 -29px;
+}
+#shareBtn {
+    background: url(../images/btn-share.png) no-repeat;
+    width: 31px;
+    height: 58px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 31px;
+    top: 40px;
+    z-index: 200;
+}
+
+/*main*/
+#main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#main .section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#main .section.active {
+    display: block;
+    z-index: 1;
+}
+#main .section .bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+#main #stage1 .bg{
+    background: url(../images/s1.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+#main .section .radio{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    z-index: 200;
+}
+#main .section .radio.show{
+    opacity: 1;
+}
+#main .section .radio1{
+    width: 236px;
+    height: 83px;
+    position: absolute;
+    bottom: 65px;
+    left: 90px;
+    background: url(../images/radio1.png);
+    background-position: 0 -83px;
+    -webkit-animation-name: breathe1;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+#main .section .radio1.change{
+    background-position: 0 0;
+}
+#main .section .radio2{
+    width: 217px;
+    height: 77px;
+    position: absolute;
+    bottom: 65px;
+    left: 350px;
+    background: url(../images/radio2.png);
+    background-position: 0 -77px;
+    -webkit-animation-name: breathe1;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+#main .section .radio2.change{
+    background-position: 0 0;
+}
+
+#main .section .bg img.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+#main .section .bg img.text.ani-text {
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: anitext;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: alternate;
+}
+#loading img.text{
+    opacity: 0;
+}
+#loading img.text.ani-text{
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: anitext;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: alternate;
+}
+
+/*第二页*/
+#main #stage2 .bg{
+    background: url(../images/s2.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第三页*/
+#main #stage3 .bg{
+    background: url(../images/s3.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第四页*/
+#main #stage4 .bg{
+    background: url(../images/s4.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第五页*/
+#main #stage5 .bg{
+    background: url(../images/s5.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第六页*/
+#main #stage6 .bg{
+    background: url(../images/s6.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第七页*/
+#main #stage7 .bg{
+    background: url(../images/s7.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第八页*/
+#main #stage8 .bg{
+    background: url(../images/s8.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+/*第九页*/
+#main #stage9 .bg{
+    background: url(../images/s9.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+#main #stage9 .click{
+    width: 129px;
+    height: 129px;
+    position: absolute;
+    left: 50%;
+    margin-left: -64px;
+    top: 50%;
+    margin-top: -64px;
+}
+#main #stage9 .click img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#main #stage9 .touch1{
+    opacity: 0.4;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-name: sc;
+    -webkit-animation-duration: 2000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+/*第十页*/
+#main #stage10 .bg{
+    background: url(../images/s10.jpg) center no-repeat;
+    background-size: 100% auto;
+    -webkit-mask: url(../images/Generic.png) no-repeat;
+    -webkit-mask-size: 400% 500%;
+}
+#main #stage10 a{
+    position: absolute;
+    bottom: 90px;
+    top: 50%;
+    margin-top: 410px;
+}
+#main #stage10 a.btn3{
+    left: 56px;
+}
+#main #stage10 a.btn2{
+    left: 228px;
+}
+#main #stage10 a.btn1{
+    left: 400px;
+}
+#main #stage10 a.btn-video{
+    left: 56px;
+    margin-top: 100px;
+}
